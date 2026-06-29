@@ -1,5 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useState } from "react";
+import logoAsset from "../assets/logo-margarida.png.asset.json";
 import { Menu, X } from "lucide-react";
 
 export function Header() {
