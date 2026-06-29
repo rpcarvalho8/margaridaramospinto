@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="border-t border-border/50 bg-background">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Designer de Comunica&ccedil;&atilde;o. Todos os direitos reservados.
+          &copy; {new Date().getFullYear()} Margarida Ramos Pinto. Todos os direitos reservados.
         </p>
         <div className="flex items-center gap-5">
           <a

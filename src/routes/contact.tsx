@@ -4,10 +4,10 @@ import { Mail, MapPin, Phone } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contato — Designer de Comunicação" },
-      { name: "description", content: "Entre em contato para discutir seu próximo projeto de design." },
-      { property: "og:title", content: "Contato — Designer de Comunicação" },
-      { property: "og:description", content: "Entre em contato para discutir seu próximo projeto de design." },
+      { title: "Contato — Margarida Ramos Pinto" },
+      { name: "description", content: "Entre em contato com Margarida Ramos Pinto para discutir seu próximo projeto de design." },
+      { property: "og:title", content: "Contato — Margarida Ramos Pinto" },
+      { property: "og:description", content: "Entre em contato com Margarida Ramos Pinto para discutir seu próximo projeto de design." },
     ],
   }),
   component: ContactPage,

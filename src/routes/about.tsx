@@ -4,10 +4,10 @@ import { Palette, Layout, Monitor, PenTool } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Sobre — Designer de Comunicação" },
-      { name: "description", content: "Conheça o trabalho e a trajetória deste Designer de Comunicação." },
-      { property: "og:title", content: "Sobre — Designer de Comunicação" },
-      { property: "og:description", content: "Conheça o trabalho e a trajetória deste Designer de Comunicação." },
+      { title: "Sobre — Margarida Ramos Pinto" },
+      { name: "description", content: "Conheça o trabalho e a trajetória de Margarida Ramos Pinto, Designer de Comunicação." },
+      { property: "og:title", content: "Sobre — Margarida Ramos Pinto" },
+      { property: "og:description", content: "Conheça o trabalho e a trajetória de Margarida Ramos Pinto, Designer de Comunicação." },
     ],
   }),
   component: AboutPage,
@@ -46,10 +46,11 @@ function AboutPage() {
 
         <div className="mt-12 space-y-6 text-lg leading-relaxed text-muted-foreground">
           <p>
-            Sou um Designer de Comunicação com paixão por transformar ideias em
-            experiências visuais memoráveis. Ao longo da minha carreira, tive o
-            privilégio de colaborar com marcas de diferentes setores — desde
-            cafeterias artesanais até startups de tecnologia.
+            Sou a Margarida Ramos Pinto, Designer de Comunicação com paixão por
+            transformar ideias em experiências visuais memoráveis. Ao longo da
+            minha carreira, tive o privilégio de colaborar com marcas de
+            diferentes setores — desde cafeterias artesanais até startups de
+            tecnologia.
           </p>
           <p>
             Meu trabalho é guiado pela crença de que o bom design não é apenas

@@ -18,8 +18,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="text-xl font-semibold tracking-tight text-foreground">
-          Portfolio
+        <Link to="/" className="flex items-center">
+          <img
+            src={logoAsset.url}
+            alt="Margarida Ramos Pinto"
+            className="h-8 w-auto"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
