@@ -10,10 +10,10 @@ import imgArquitetura from "../assets/projeto-arquitetura.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Designer de Comunicação — Portfolio" },
-      { name: "description", content: "Portfolio de um Designer de Comunicação especializado em branding, editorial, digital e social media." },
-      { property: "og:title", content: "Designer de Comunicação — Portfolio" },
-      { property: "og:description", content: "Portfolio de um Designer de Comunicação especializado em branding, editorial, digital e social media." },
+      { title: "Margarida Ramos Pinto — Portfolio" },
+      { name: "description", content: "Portfolio de Margarida Ramos Pinto, Designer de Comunicação especializada em branding, editorial, digital e social media." },
+      { property: "og:title", content: "Margarida Ramos Pinto — Portfolio" },
+      { property: "og:description", content: "Portfolio de Margarida Ramos Pinto, Designer de Comunicação especializada em branding, editorial, digital e social media." },
     ],
   }),
   component: Index,
@@ -64,12 +64,12 @@ function Index() {
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-6 pb-12 pt-16 md:pt-24">
         <h1 className="max-w-4xl text-4xl font-light leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl">
-          Designer de
+          Margarida Ramos
           <br />
-          <span className="font-semibold text-primary">Comunicação</span>
+          <span className="font-semibold text-primary">Pinto</span>
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-          Crio identidades visuais, experiências editoriais e campanhas digitais
+          Designer de Comunicação. Crio identidades visuais, experiências editoriais e campanhas digitais
           que conectam marcas &agrave;s suas audi&ecirc;ncias.
         </p>
       </section>
