@@ -92,7 +92,7 @@ function Index() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-6 pb-12 pt-16 md:pt-24">
-        <h1 className="max-w-4xl text-3xl font-light leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
+        <h1 className="max-w-4xl text-2xl font-light leading-tight tracking-tight text-foreground md:text-4xl lg:text-5xl">
           Designer de
           <br />
           <span className="font-semibold text-primary">Comunicação</span>
