@@ -9,7 +9,7 @@ export function Footer() {
         </p>
         <div className="flex items-center gap-5">
           <a
-            href="mailto:contato@designer.com"
+            href="mailto:geral@margaridaramospinto.com"
             className="text-muted-foreground transition-colors hover:text-primary"
             aria-label="Email"
           >
