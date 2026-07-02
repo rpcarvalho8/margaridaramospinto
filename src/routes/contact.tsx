@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -25,24 +25,19 @@ function ContactPage() {
           e vamos explorar as possibilidades juntos.
         </p>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-3">
+        <div className="mt-12 grid gap-8 sm:grid-cols-2">
           <a
-            href="mailto:contato@designer.com"
+            href="mailto:geral@margaridaramospinto.com"
             className="flex flex-col items-center rounded-xl border border-border/50 bg-card p-6 text-center transition-shadow hover:shadow-sm"
           >
             <Mail className="h-8 w-8 text-primary" strokeWidth={1.5} />
             <span className="mt-4 text-sm font-medium text-foreground">Email</span>
-            <span className="mt-1 text-sm text-muted-foreground">contato@designer.com</span>
+            <span className="mt-1 text-sm text-muted-foreground">geral@margaridaramospinto.com</span>
           </a>
-          <div className="flex flex-col items-center rounded-xl border border-border/50 bg-card p-6 text-center">
-            <Phone className="h-8 w-8 text-primary" strokeWidth={1.5} />
-            <span className="mt-4 text-sm font-medium text-foreground">Telefone</span>
-            <span className="mt-1 text-sm text-muted-foreground">+55 (11) 99999-9999</span>
-          </div>
           <div className="flex flex-col items-center rounded-xl border border-border/50 bg-card p-6 text-center">
             <MapPin className="h-8 w-8 text-primary" strokeWidth={1.5} />
             <span className="mt-4 text-sm font-medium text-foreground">Localização</span>
-            <span className="mt-1 text-sm text-muted-foreground">São Paulo, Brasil</span>
+            <span className="mt-1 text-sm text-muted-foreground">Trofa, Porto - Portugal</span>
           </div>
         </div>
 
