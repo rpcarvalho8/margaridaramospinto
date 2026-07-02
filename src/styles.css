@@ -46,7 +46,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Satoshi", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -123,6 +124,10 @@
 @layer base {
   * {
     border-color: var(--color-border);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
   }
 
   body {
