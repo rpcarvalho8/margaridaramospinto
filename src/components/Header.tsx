@@ -22,7 +22,7 @@ export function Header() {
           <img
             src={logoAsset.url}
             alt="Margarida Ramos Pinto"
-            className="h-8 w-auto"
+            className="h-16 w-auto md:h-20"
           />
         </Link>
 
