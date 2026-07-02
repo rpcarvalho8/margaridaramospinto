@@ -17,7 +17,7 @@ function ContactPage() {
   return (
     <div className="min-h-screen">
       <section className="mx-auto max-w-4xl px-6 pb-20 pt-16 md:pt-24">
-        <h1 className="text-4xl font-light tracking-tight text-foreground md:text-5xl">
+        <h1 className="text-3xl font-light tracking-tight text-foreground md:text-4xl">
           Vamos <span className="font-semibold text-primary">conversar</span>
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
