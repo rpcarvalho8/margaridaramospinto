@@ -92,13 +92,13 @@ function Index() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-6 pb-12 pt-16 md:pt-24">
-        <h1 className="max-w-4xl text-4xl font-light leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl">
+        <h1 className="max-w-4xl text-3xl font-light leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
           Designer de
           <br />
           <span className="font-semibold text-primary">Comunicação</span>
         </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-          Designer de Comunicação. Crio identidades visuais, experiências editoriais e campanhas digitais
+          Crio identidades visuais, experiências editoriais e campanhas digitais
           que conectam marcas &agrave;s suas audi&ecirc;ncias.
         </p>
       </section>

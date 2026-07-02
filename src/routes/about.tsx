@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Palette, Layout, Monitor, PenTool } from "lucide-react";
+import { Palette, BookOpen, Monitor, Camera } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -16,23 +16,23 @@ export const Route = createFileRoute("/about")({
 const skills = [
   {
     icon: Palette,
-    title: "Branding & Identidade",
-    description: "Criação de marcas completas: naming, logotipo, paleta de cores, tipografia e diretrizes de uso.",
+    title: "Branding & Identidade Visual",
+    description: "Criação e desenvolvimento de marcas com personalidade: naming, logotipo, paleta de cores, tipografia, linguagem visual e aplicações gráficas.",
   },
   {
-    icon: Layout,
-    title: "Design Editorial",
-    description: "Diagramação de revistas, livros e materiais impressos com atenção à hierarquia tipográfica.",
+    icon: BookOpen,
+    title: "Design Editorial & Comercial",
+    description: "Paginação de catálogos, brochuras, fichas técnicas, apresentações e materiais impressos, com atenção à hierarquia, clareza e detalhe.",
   },
   {
     icon: Monitor,
-    title: "Design Digital",
-    description: "Interfaces web, campanhas digitais e peças para redes sociais com foco em conversão.",
+    title: "Design Digital & Web",
+    description: "Criação de conteúdos para redes sociais, newsletters, banners, websites e interfaces digitais, com foco numa comunicação apelativa, funcional e consistente.",
   },
   {
-    icon: PenTool,
-    title: "Ilustração & Iconografia",
-    description: "Criação de ilustrações personalizadas e sistemas de ícones para projetos específicos.",
+    icon: Camera,
+    title: "Fotografia & Conteúdo Visual",
+    description: "Produção e edição de imagens de produto, composições visuais e conteúdos para campanhas, adaptados a diferentes formatos e canais.",
   },
 ];
 
@@ -40,7 +40,7 @@ function AboutPage() {
   return (
     <div className="min-h-screen">
       <section className="mx-auto max-w-4xl px-6 pb-20 pt-16 md:pt-24">
-        <h1 className="text-4xl font-light tracking-tight text-foreground md:text-5xl">
+        <h1 className="text-3xl font-light tracking-tight text-foreground md:text-4xl">
           Sobre <span className="font-semibold text-primary">mim</span>
         </h1>
 
@@ -70,7 +70,7 @@ function AboutPage() {
         </div>
 
         <div className="mt-20">
-          <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+          <h2 className="text-xl font-semibold tracking-tight text-foreground md:text-2xl">
             O que faço
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
