@@ -50,22 +50,22 @@ function AboutPage() {
 
         <div className="mt-12 space-y-6 text-lg leading-relaxed text-muted-foreground">
           <p>
-            No ano ido de 1987, o Robocop ditava a sua lei no grande ecrã, os Guns N' Roses, com lenços de cornucópia na cabeça, eram os reis do Rock, enquanto Michael Jackson e Madonna, com danças e ousadias pouco recomendáveis a menores, reinavam no mundo da Pop. No início de junho desse ano, nascia uma menina de seu nome Margarida, na freguesia do Muro. Maria-rapaz quanto baste, como não podia deixar de ser depois de Portugal inteiro se sentir campeão europeu em Viena, com a obra-prima do calcanhar do Madjer.
+            No ano ido de 1987, enquanto Robocop impunha a sua lei no grande ecrã, os Guns N' Roses mandavam no rock e Michael Jackson e Madonna faziam da pop uma arte de alto risco para menores, nascia no início de junho, na freguesia do Muro, uma menina chamada Margarida.
           </p>
           <p>
-            Não tardou a revelar uma aptidão artística inata por instrumentos musicais, artes plásticas, design, ativismo social. E só não ensinou ballet a gatos porque não encontrou nenhum com as unhas aparadas. Culminou este percurso com formação superior em Design de Comunicação na ESAD Matosinhos.
+            Criativa por defeito de fabrico, curiosa por natureza e maria-rapaz quanto baste, cedo percebeu que tinha mais jeito para transformar ideias em coisas visíveis do que para ficar quieta. Entre música, artes plásticas, comunicação, design e ativismo social, foi construindo uma forma muito própria de olhar para o mundo: com atenção ao detalhe, sentido crítico e uma teimosia saudável em fazer melhor.
           </p>
           <p>
-            Isso deu-lhe asas criativas mais fortes e seguras, permitindo-lhe voar por diversas estradas: desde montar cenários dignos de contos de fadas, a criar cartazes inimagináveis em locais que nem é bom revelar, logótipos indescritíveis, vídeos e websites apelativos e tão intuitivos que até uma criança os usaria com facilidade. Navega entre branding, design editorial, animação e produção audiovisual, sempre a transformar ideias em experiências visuais que comunicam e encantam.
+            Licenciada em Design de Comunicação pela ESAD Matosinhos, desenvolveu um percurso ligado à comunicação visual, à criação de marcas, ao design digital e editorial, à produção de conteúdos e a soluções visuais pensadas para comunicar com clareza. Não acredita em design só para ficar bonito. Acredita em design que resolve, organiza, aproxima e faz sentido. Claro que, se também ficar bonito, ninguém se queixa.
           </p>
           <p>
-            Mas foi em 2024 que começou o projeto mais transformador da sua vida: nasceu o Salvador, não o do cubismo, mas o da fralda, sorriso maroto e superpoder de derreter corações. Coincidência ou não, nesse dia nasceu também Hector Berlioz, compositor francês de sinfonias arrebatadoras. E não há dúvida de que, a partir daí, a sua vida passou a tocar noutra frequência: com sonatas de choro, serenatas de embalo e improvisos dignos de uma jam session parental.
+            Ao longo do seu caminho profissional, ganhou experiência em ambientes exigentes, onde os prazos têm vida própria, os briefings nem sempre vêm completos e a frase "é só uma alteração rápida" raramente significa isso. Aprendeu a ser autónoma, organizada, flexível e prática, sem perder a criatividade nem o humor, competências essenciais para sobreviver a qualquer projeto, cliente ou pasta chamada "final_final_agora_sim".
           </p>
           <p>
-            Dizem que quando nasce uma mãe, nasce também uma nova mulher. E no caso da Margarida, é uma verdadeira edição de luxo: mais empatia no trato, foco nos detalhes, cores nas emoções e um radar afinado para necessidades invisíveis, de bebés ou de clientes, tanto faz. O multitasking virou arte performativa, os briefings ganharam colo e o café passou a saber a noites mal dormidas.
+            Em 2024, começou o projeto mais transformador da sua vida: nasceu o Salvador. Não o do cubismo, mas o da fralda, sorriso maroto e superpoder de derreter corações. A maternidade trouxe-lhe ainda mais foco, empatia, resistência e capacidade de priorizar. Basicamente, uma pós-graduação intensiva em gestão de tempo, emoções e imprevistos.
           </p>
           <p>
-            A sua centelha criativa continua a brilhar e irradia com a força de quem cria e cuida ao mesmo tempo. Quanto à comunicação? Fala pelos cotovelos, sim, mas agora também embala, canta, conta histórias e, como sempre, resolve problemas com um toque de magia visual.
+            Hoje, a Margarida junta criatividade, método e sensibilidade para transformar ideias dispersas em comunicação clara, funcional e apelativa. Gosta de pensar, questionar, colaborar e encontrar soluções com propósito. Fala pelos cotovelos, sim, mas também ouve, interpreta, resolve e entrega. E, no fim, deixa sempre qualquer coisa melhor do que encontrou: uma marca, uma ideia, uma equipa ou, pelo menos, uma pasta de ficheiros minimamente organizada.
           </p>
         </div>
 
