@@ -5,10 +5,8 @@ export default defineConfig({
     server: { entry: "server" },
   },
   nitro: {
+    // Keep Nitro's default output directory (`.output`).
+    // Deployment Output Directory must be set to `.output`, not `build`.
     preset: "node-server",
-    // Match the platform Output Directory (`build`) instead of Nitro's default `.output`.
-    output: {
-      dir: "build",
-    },
   },
 });

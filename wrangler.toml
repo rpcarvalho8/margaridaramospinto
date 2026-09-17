@@ -1,0 +1,14 @@
+# Cloudflare / Pages-compatible deploy hints for TanStack Start + Nitro.
+# Output Directory must be `.output` (Nitro default), not `build`.
+name = "margaridaramospinto"
+compatibility_date = "2026-09-17"
+compatibility_flags = ["nodejs_compat"]
+
+main = ".output/server/index.mjs"
+
+[assets]
+directory = ".output/public"
+binding = "ASSETS"
+
+# Used when deploying as Cloudflare Pages (publish directory).
+pages_build_output_dir = ".output"
