@@ -16,7 +16,7 @@ export function Footer() {
             <Mail size={20} />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/margaridaramospinto"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors hover:text-primary"
@@ -25,7 +25,7 @@ export function Footer() {
             <Instagram size={20} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/margarida-ramos-pinto"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground transition-colors hover:text-primary"

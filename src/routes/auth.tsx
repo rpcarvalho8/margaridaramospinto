@@ -23,7 +23,7 @@ function AuthPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const [message, setMessage] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ function AuthPage() {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
-    setMessage(null);
+    setSuccess(null);
     setLoading(true);
     try {
       if (mode === "forgot") {
@@ -44,7 +44,9 @@ function AuthPage() {
           redirectTo: `${window.location.origin}/reset-password`,
         });
         if (error) throw error;
-        setMessage("Enviámos um email com um link para repores a password.");
+        setSuccess(
+          "Se existir uma conta com este email, envíamos um link para repor a palavra-passe.",
+        );
       } else if (mode === "signup") {
         const { error } = await supabase.auth.signUp({
           email,
@@ -68,17 +70,19 @@ function AuthPage() {
   const titles: Record<AuthMode, string> = {
     signin: "Entrar",
     signup: "Criar conta",
-    forgot: "Repor password",
+    forgot: "Recuperar password",
+  };
+
+  const descriptions: Record<AuthMode, string> = {
+    signin: "Área de administração do portfolio.",
+    signup: "Área de administração do portfolio.",
+    forgot: "Indica o teu email para receberes um link de recuperação.",
   };
 
   return (
     <div className="mx-auto flex min-h-[70vh] max-w-md flex-col justify-center px-6 py-16">
       <h1 className="text-2xl font-semibold text-foreground">{titles[mode]}</h1>
-      <p className="mt-2 text-sm text-muted-foreground">
-        {mode === "forgot"
-          ? "Escreve o teu email e enviamos um link para definires uma nova password."
-          : "Área de administração do portfolio."}
-      </p>
+      <p className="mt-2 text-sm text-muted-foreground">{descriptions[mode]}</p>
 
       <form onSubmit={onSubmit} className="mt-8 space-y-4">
         <div className="space-y-2">
@@ -114,42 +118,54 @@ function AuthPage() {
             onClick={() => {
               setMode("forgot");
               setError(null);
-              setMessage(null);
+              setSuccess(null);
             }}
             className="text-sm text-muted-foreground underline-offset-4 hover:underline"
           >
-            Esqueci-me da password
+            Esqueci-me da palavra-passe
           </button>
         )}
 
         {error && <p className="text-sm text-destructive">{error}</p>}
-        {message && <p className="text-sm text-emerald-600">{message}</p>}
+        {success && <p className="text-sm text-primary">{success}</p>}
 
         <Button type="submit" disabled={loading} className="w-full">
           {loading
             ? "A processar..."
-            : mode === "signin"
-              ? "Entrar"
-              : mode === "signup"
-                ? "Criar conta"
-                : "Enviar link de reposição"}
+            : mode === "forgot"
+              ? "Enviar link de recuperação"
+              : mode === "signin"
+                ? "Entrar"
+                : "Criar conta"}
         </Button>
 
-        <button
-          type="button"
-          onClick={() => {
-            setMode(mode === "forgot" || mode === "signup" ? "signin" : "signup");
-            setError(null);
-            setMessage(null);
-          }}
-          className="w-full text-sm text-muted-foreground underline-offset-4 hover:underline"
-        >
-          {mode === "signup"
-            ? "Já tens conta? Entrar"
-            : mode === "forgot"
-              ? "Voltar a entrar"
-              : "Não tens conta? Criar conta"}
-        </button>
+        {mode === "forgot" ? (
+          <button
+            type="button"
+            onClick={() => {
+              setMode("signin");
+              setError(null);
+              setSuccess(null);
+            }}
+            className="w-full text-sm text-muted-foreground underline-offset-4 hover:underline"
+          >
+            Voltar ao login
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              setMode(mode === "signin" ? "signup" : "signin");
+              setError(null);
+              setSuccess(null);
+            }}
+            className="w-full text-sm text-muted-foreground underline-offset-4 hover:underline"
+          >
+            {mode === "signin"
+              ? "Não tens conta? Criar conta"
+              : "Já tens conta? Entrar"}
+          </button>
+        )}
       </form>
     </div>
   );
