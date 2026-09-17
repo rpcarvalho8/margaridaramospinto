@@ -1,0 +1,7 @@
+# Netlify: publish Nitro's default output directory (`.output`), not `build`.
+[build]
+  command = "npm run build"
+  publish = ".output/public"
+
+[build.environment]
+  NODE_VERSION = "22"
