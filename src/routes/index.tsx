@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -19,7 +19,6 @@ type ProjectCard = {
   title: string;
   category: string;
   image: string;
-  link: string;
 };
 
 function Index() {
@@ -28,7 +27,7 @@ function Index() {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("projects")
-        .select("id,title,category,image,link")
+        .select("id,title,category,image")
         .order("sort_order", { ascending: true });
       if (error) throw error;
       return data as ProjectCard[];
@@ -57,11 +56,10 @@ function Index() {
         )}
         <div className="masonry md:masonry-md lg:masonry-lg">
           {projects?.map((project) => (
-            <a
+            <Link
               key={project.id}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
+              to="/projects/$id"
+              params={{ id: project.id }}
               className="masonry-item group block"
             >
               <div className="overflow-hidden rounded-xl bg-card shadow-sm transition-shadow hover:shadow-md">
@@ -83,7 +81,7 @@ function Index() {
                   </h3>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
