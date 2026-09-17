@@ -4,11 +4,11 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "start": "node .output/server/index.mjs",
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "vite build && cp -a .output/server/. .output/public/ && mv .output/public/index.mjs .output/public/server.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
+    "start": "node .output/public/server.mjs",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
