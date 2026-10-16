@@ -207,7 +207,7 @@ function ProjectsSection() {
         title: values.title,
         category: values.category,
         image: values.image,
-        link: values.link.trim() || "",
+        link: values.link.trim() || null,
         description: values.description || null,
         sort_order: values.sort_order,
       };
