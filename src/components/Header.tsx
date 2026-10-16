@@ -1,6 +1,6 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useState } from "react";
-import logoUrl from "../assets/logo-margarida-transparent.png";
+import logoUrl from "../assets/logo-margarida.png";
 import { Menu, X } from "lucide-react";
 
 export function Header() {
@@ -22,7 +22,7 @@ export function Header() {
           <img
             src={logoUrl}
             alt="Margarida Ramos Pinto"
-            className="h-12 w-auto md:h-14"
+            className="h-14 w-auto md:h-16"
           />
         </Link>
 
