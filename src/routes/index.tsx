@@ -37,17 +37,24 @@ function Index() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="mx-auto max-w-7xl px-6 pb-12 pt-16 md:pt-24">
-        <h1 className="max-w-4xl text-2xl font-light leading-tight tracking-tight text-foreground md:text-4xl lg:text-5xl">
-          Designer de
+      <section className="mx-auto flex min-h-[80vh] max-w-5xl flex-col items-center justify-center px-6 text-center">
+        <h1 className="text-4xl font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
+          Transformo ideias em
           <br />
-          <span className="font-semibold text-primary">Comunicação</span>
+          <span className="text-primary text-glow">comunicação visual.</span>
         </h1>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-          Crio identidades visuais, experiências editoriais e campanhas digitais
+        <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
+          Identidades visuais, experiências editoriais e campanhas digitais
           que conectam marcas &agrave;s suas audi&ecirc;ncias.
         </p>
+        <a
+          href="#projetos"
+          className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-foreground transition-colors hover:text-primary"
+        >
+          Ver projetos ↓
+        </a>
       </section>
+      <div id="projetos" className="scroll-mt-28" />
 
       {/* Projects — Masonry */}
       <section className="mx-auto max-w-7xl px-6 pb-20">
