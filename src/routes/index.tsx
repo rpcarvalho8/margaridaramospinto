@@ -35,7 +35,7 @@ function Index() {
   });
 
   return (
-    <div className="min-h-screen">
+    <div className="hero-glow min-h-screen">
       {/* Hero */}
       <section className="mx-auto flex min-h-[80vh] max-w-5xl flex-col items-center justify-center px-6 text-center">
         <h1 className="text-4xl font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-7xl">
