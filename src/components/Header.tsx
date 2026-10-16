@@ -16,13 +16,13 @@ export function Header() {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+    <header className="sticky top-4 z-50 mx-4 md:mx-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between rounded-2xl border border-border bg-card/70 px-6 py-3 backdrop-blur-md">
         <Link to="/" className="flex items-center">
           <img
             src={logoUrl}
             alt="Margarida Ramos Pinto"
-            className="h-16 w-auto md:h-20"
+            className="h-12 w-auto brightness-0 invert md:h-14"
           />
         </Link>
 
