@@ -31,3 +31,7 @@ build
 *.njsproj
 *.sln
 *.sw?
+
+# Environment files (secrets)
+.env.*
+!.env.example
