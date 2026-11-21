@@ -1,0 +1,25 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # Corre a cada 3 dias às 09:00 UTC
+    - cron: '0 9 */3 * *'
+  # Permite testar manualmente no separador "Actions" do GitHub
+  workflow_dispatch:
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        run: |
+          response=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
+            "https://supabase.co")
+          
+          echo "HTTP Status: $response"
+          if [ "$response" -ne 200 ] && [ "$response" -ne 401 ]; then
+            echo "Erro ao contactar o Supabase"
+            exit 1
+          fi
