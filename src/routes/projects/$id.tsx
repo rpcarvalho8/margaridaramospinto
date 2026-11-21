@@ -1,114 +1,107 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, ExternalLink } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
+import { ArrowLeft } from "lucide-react";
+import { isUuid, projectsQuery } from "@/lib/projects";
+import { CaseHero } from "@/components/case-study/CaseHero";
+import { CaseNarrative } from "@/components/case-study/CaseNarrative";
+import { CaseGallery } from "@/components/case-study/CaseGallery";
+import { NextProject } from "@/components/case-study/NextProject";
+import { CaseStudySkeleton } from "@/components/editorial/ProjectSkeleton";
 
 export const Route = createFileRoute("/projects/$id")({
-  head: () => ({
-    meta: [
-      { title: `Projeto — Margarida Ramos Pinto` },
-      { name: "description", content: "Detalhes do projeto no portfolio de Margarida Ramos Pinto." },
-      { property: "og:title", content: `Projeto — Margarida Ramos Pinto` },
-    ],
-  }),
+  loader: async ({ params, context }) => {
+    if (!isUuid(params.id)) throw notFound();
+    // Uma só query partilhada com a homepage (cache do React Query)
+    const projects = await context.queryClient.ensureQueryData(projectsQuery());
+    const index = projects.findIndex((p) => p.id === params.id);
+    if (index === -1) throw notFound();
+    const next = projects.length > 1 ? projects[(index + 1) % projects.length] : null;
+    return { project: projects[index], next };
+  },
+  head: ({ loaderData }) => {
+    const project = loaderData?.project;
+    const title = project
+      ? `${project.title} — Margarida Ramos Pinto`
+      : "Projeto — Margarida Ramos Pinto";
+    const description =
+      project?.description?.slice(0, 160) ??
+      "Case study do portfólio de Margarida Ramos Pinto, Designer de Comunicação.";
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "article" },
+        ...(project?.image ? [{ property: "og:image", content: project.image }] : []),
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+    };
+  },
+  pendingComponent: CaseStudySkeleton,
+  notFoundComponent: ProjectNotFound,
+  errorComponent: ProjectLoadError,
   component: ProjectDetailPage,
 });
 
-type Project = {
-  id: string;
-  title: string;
-  category: string;
-  image: string;
-  link: string | null;
-  description: string | null;
-};
-
 function ProjectDetailPage() {
-  const { id } = Route.useParams();
-
-  const { data: project, isLoading, error } = useQuery({
-    queryKey: ["project", id],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("projects")
-        .select("id,title,category,image,link,description")
-        .eq("id", id)
-        .maybeSingle();
-      if (error) throw error;
-      return data as Project | null;
-    },
-  });
-
-  if (isLoading) {
-    return (
-      <div className="mx-auto max-w-5xl px-6 py-16 text-sm text-muted-foreground">
-        A carregar projeto...
-      </div>
-    );
-  }
-
-  if (error || !project) {
-    return (
-      <div className="mx-auto max-w-md px-6 py-16 text-center">
-        <h1 className="text-2xl font-semibold text-foreground">Projeto não encontrado</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Este projeto pode ter sido removido ou o link está incorreto.
-        </p>
-        <Link
-          to="/"
-          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-        >
-          <ArrowLeft className="h-4 w-4" /> Voltar ao portfolio
-        </Link>
-      </div>
-    );
-  }
+  const { project, next } = Route.useLoaderData();
 
   return (
-    <div className="min-h-screen">
-      <article className="mx-auto max-w-5xl px-6 pb-20 pt-12 md:pt-16">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+    <article key={project.id} className="min-h-screen">
+      <CaseHero project={project} />
+      <CaseNarrative project={project} />
+      <div className="pb-24 md:pb-32">
+        <CaseGallery items={project.gallery} title={project.title} />
+      </div>
+      {next && <NextProject project={next} />}
+    </article>
+  );
+}
+
+function ProjectNotFound() {
+  return (
+    <div className="mx-auto max-w-md px-6 py-28 text-center">
+      <p className="eyebrow">404</p>
+      <h1 className="display mt-4 text-5xl text-foreground">
+        Projeto <em className="text-terracotta">não encontrado</em>
+      </h1>
+      <p className="mt-4 text-sm text-stone">
+        Este projeto pode ter sido removido ou o link está incorreto.
+      </p>
+      <Link
+        to="/"
+        hash="projetos"
+        className="mt-8 inline-flex items-center gap-2 text-sm text-foreground link-underline"
+      >
+        <ArrowLeft className="h-4 w-4" /> Ver todos os projetos
+      </Link>
+    </div>
+  );
+}
+
+function ProjectLoadError() {
+  const router = useRouter();
+  return (
+    <div className="mx-auto max-w-md px-6 py-28 text-center">
+      <p className="eyebrow">Ligação interrompida</p>
+      <h1 className="display mt-4 text-5xl text-foreground">
+        Este projeto está a <em className="text-terracotta">descansar</em>
+      </h1>
+      <p className="mt-4 text-sm text-stone">
+        Não foi possível carregar o case study neste momento. Tente novamente daqui a pouco.
+      </p>
+      <div className="mt-8 flex items-center justify-center gap-6">
+        <button
+          type="button"
+          onClick={() => router.invalidate()}
+          className="rounded-full bg-foreground px-6 py-3 text-sm text-background transition-colors hover:bg-terracotta"
         >
-          <ArrowLeft className="h-4 w-4" /> Voltar
+          Tentar novamente
+        </button>
+        <Link to="/" hash="projetos" className="link-underline text-sm text-foreground">
+          Ver todos os projetos
         </Link>
-
-        <header className="mt-8">
-          <p className="text-xs font-medium uppercase tracking-wider text-primary">
-            {project.category}
-          </p>
-          <h1 className="mt-2 text-3xl font-light tracking-tight text-foreground md:text-4xl">
-            <span className="font-semibold">{project.title}</span>
-          </h1>
-          {project.description && (
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              {project.description}
-            </p>
-          )}
-        </header>
-
-        <div className="mt-10 overflow-hidden rounded-xl bg-card shadow-sm">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full object-cover"
-          />
-        </div>
-
-        {project.link && (
-          <div className="mt-10">
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-            >
-              Ver no Behance <ExternalLink className="h-4 w-4" />
-            </a>
-          </div>
-        )}
-      </article>
+      </div>
     </div>
   );
 }

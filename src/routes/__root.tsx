@@ -19,17 +19,19 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+        <p className="eyebrow">Erro 404</p>
+        <h1 className="display mt-4 text-6xl text-foreground">
+          Página <em className="text-terracotta">perdida</em>
+        </h1>
+        <p className="mt-4 text-sm text-muted-foreground">
+          A página que procura não existe ou mudou de sítio.
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Go home
+            Voltar ao início
           </Link>
         </div>
       </div>
@@ -48,10 +50,10 @@ function ErrorComponent({ error }: { error: unknown }) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+          Não foi possível carregar esta página
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          Algo correu mal do nosso lado. Tente novamente ou volte ao início.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -60,13 +62,13 @@ function ErrorComponent({ error }: { error: unknown }) {
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Try again
+            Tentar novamente
           </button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Go home
+            Voltar ao início
           </a>
         </div>
       </div>
@@ -80,12 +82,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Margarida Ramos Pinto — Designer de Comunicação" },
-      { name: "description", content: "Portfolio de Margarida Ramos Pinto, Designer de Comunicação especializada em branding, editorial, digital e social media." },
+      {
+        name: "description",
+        content:
+          "Portfolio de Margarida Ramos Pinto, Designer de Comunicação especializada em branding, editorial, digital e social media.",
+      },
       { name: "author", content: "Margarida Ramos Pinto" },
       { property: "og:title", content: "Margarida Ramos Pinto — Designer de Comunicação" },
-      { property: "og:description", content: "Portfolio de Margarida Ramos Pinto, Designer de Comunicação especializada em branding, editorial, digital e social media." },
+      {
+        property: "og:description",
+        content:
+          "Portfolio de Margarida Ramos Pinto, Designer de Comunicação especializada em branding, editorial, digital e social media.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#F8F7F4" },
     ],
     links: [
       {
@@ -102,16 +113,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         crossOrigin: "anonymous",
       },
       {
-        rel: "preconnect",
-        href: "https://api.fontshare.com",
-      },
-      {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,800,900&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap",
       },
     ],
   }),
@@ -123,7 +126,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-PT">
       <head>
         <HeadContent />
       </head>

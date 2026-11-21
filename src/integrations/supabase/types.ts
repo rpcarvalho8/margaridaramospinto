@@ -53,33 +53,54 @@ export type Database = {
       projects: {
         Row: {
           category: string
+          challenge: string | null
+          client: string | null
+          concept: string | null
+          cover_ratio: string
+          gallery: Json
+          solution: string | null
+          year: number | null
           created_at: string
           description: string | null
           id: string
           image: string
-          link: string
+          link: string | null
           sort_order: number
           title: string
           updated_at: string
         }
         Insert: {
           category: string
+          challenge?: string | null
+          client?: string | null
+          concept?: string | null
+          cover_ratio?: string
+          gallery?: Json
+          solution?: string | null
+          year?: number | null
           created_at?: string
           description?: string | null
           id?: string
           image: string
-          link: string
+          link?: string | null
           sort_order?: number
           title: string
           updated_at?: string
         }
         Update: {
           category?: string
+          challenge?: string | null
+          client?: string | null
+          concept?: string | null
+          cover_ratio?: string
+          gallery?: Json
+          solution?: string | null
+          year?: number | null
           created_at?: string
           description?: string | null
           id?: string
           image?: string
-          link?: string
+          link?: string | null
           sort_order?: number
           title?: string
           updated_at?: string

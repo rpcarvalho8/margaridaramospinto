@@ -1,23 +1,23 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, MapPin } from "lucide-react";
+import { MapPin, Instagram, Linkedin } from "lucide-react";
+import { CopyEmailButton } from "@/components/CopyEmailButton";
+import { SITE_EMAIL, SOCIAL } from "@/lib/site";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contato — Margarida Ramos Pinto" },
+      { title: "Contacto — Margarida Ramos Pinto" },
       {
         name: "description",
-        content:
-          "Entre em contato com Margarida Ramos Pinto para discutir seu próximo projeto de design.",
+        content: "Fale com Margarida Ramos Pinto sobre o seu próximo projeto de design.",
       },
-      { property: "og:title", content: "Contato — Margarida Ramos Pinto" },
+      { property: "og:title", content: "Contacto — Margarida Ramos Pinto" },
       {
         property: "og:description",
-        content:
-          "Entre em contato com Margarida Ramos Pinto para discutir seu próximo projeto de design.",
+        content: "Fale com Margarida Ramos Pinto sobre o seu próximo projeto de design.",
       },
     ],
   }),
@@ -56,104 +56,139 @@ function ContactPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="mx-auto max-w-4xl px-6 pb-20 pt-16 md:pt-24">
-        <h1 className="text-3xl font-light tracking-tight text-foreground md:text-4xl">
-          Vamos <span className="font-semibold text-primary">conversar</span>
+      <section className="mx-auto max-w-7xl px-6 pb-24 pt-14 md:pt-20">
+        <p className="eyebrow animate-reveal">Contacto</p>
+        <h1
+          className="display mt-6 animate-reveal text-[clamp(3rem,9vw,7.5rem)] text-foreground"
+          style={{ animationDelay: "80ms" }}
+        >
+          Vamos <em className="text-terracotta">conversar</em>.
         </h1>
-        <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-          Tem um projeto em mente? Adoraria ouvir sobre ele. Entre em contato
-          e vamos explorar as possibilidades juntos.
-        </p>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2">
-          <a
-            href="mailto:geral@margaridaramospinto.com"
-            className="flex flex-col items-center rounded-xl border border-border/50 bg-card p-6 text-center transition-shadow hover:shadow-sm"
-          >
-            <Mail className="h-8 w-8 text-primary" strokeWidth={1.5} />
-            <span className="mt-4 text-sm font-medium text-foreground">Email</span>
-            <span className="mt-1 text-sm text-muted-foreground">
-              geral@margaridaramospinto.com
-            </span>
-          </a>
-          <div className="flex flex-col items-center rounded-xl border border-border/50 bg-card p-6 text-center">
-            <MapPin className="h-8 w-8 text-primary" strokeWidth={1.5} />
-            <span className="mt-4 text-sm font-medium text-foreground">Localização</span>
-            <span className="mt-1 text-sm text-muted-foreground">
-              Trofa, Porto - Portugal
-            </span>
-          </div>
-        </div>
+        <div className="mt-16 grid gap-16 md:grid-cols-12 md:gap-10">
+          {/* Contacto direto */}
+          <aside className="space-y-10 md:col-span-4">
+            <p className="max-w-sm text-lg leading-relaxed text-stone">
+              Tem um projeto em mente, uma marca para construir ou uma ideia por arrumar? A forma
+              mais rápida é por email.
+            </p>
+            <div className="space-y-3">
+              <CopyEmailButton />
+              <p className="text-xs text-stone">
+                Um clique copia o endereço ·{" "}
+                <a href={`mailto:${SITE_EMAIL}`} className="link-underline text-foreground">
+                  ou abrir no email
+                </a>
+              </p>
+            </div>
+            <dl className="divide-y divide-border border-y border-border text-sm">
+              <div className="flex items-center justify-between gap-6 py-3">
+                <dt className="text-stone">Localização</dt>
+                <dd className="inline-flex items-center gap-1.5">
+                  <MapPin className="h-3.5 w-3.5 text-terracotta" /> Trofa, Porto — Portugal
+                </dd>
+              </div>
+              <div className="flex items-center justify-between gap-6 py-3">
+                <dt className="text-stone">Redes</dt>
+                <dd className="flex items-center gap-4">
+                  <a
+                    href={SOCIAL.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="hover:text-terracotta"
+                  >
+                    <Instagram className="h-4 w-4" />
+                  </a>
+                  <a
+                    href={SOCIAL.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    className="hover:text-terracotta"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </aside>
 
-        <div className="mt-16">
-          <h2 className="text-xl font-semibold text-foreground">Envie uma mensagem</h2>
-          <form className="mt-8 space-y-6" onSubmit={onSubmit}>
-            <div className="grid gap-6 sm:grid-cols-2">
+          {/* Formulário */}
+          <div className="md:col-span-7 md:col-start-6">
+            <h2 className="font-serif text-3xl text-foreground">
+              Ou deixe uma <em className="text-stone">mensagem</em>
+            </h2>
+            <form className="mt-8 space-y-8" onSubmit={onSubmit}>
+              <div className="grid gap-8 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="eyebrow block">
+                    Nome
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    required
+                    autoComplete="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="mt-2 block w-full border-0 border-b border-input bg-transparent px-0 py-3 text-base text-foreground outline-none transition-colors placeholder:text-stone/60 focus:border-foreground"
+                    placeholder="O seu nome"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="eyebrow block">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="mt-2 block w-full border-0 border-b border-input bg-transparent px-0 py-3 text-base text-foreground outline-none transition-colors placeholder:text-stone/60 focus:border-foreground"
+                    placeholder="nome@email.com"
+                  />
+                </div>
+              </div>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-foreground">
-                  Nome
+                <label htmlFor="subject" className="eyebrow block">
+                  Assunto
                 </label>
                 <input
-                  id="name"
+                  id="subject"
                   type="text"
                   required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="mt-2 block w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder="Seu nome"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                  className="mt-2 block w-full border-0 border-b border-input bg-transparent px-0 py-3 text-base text-foreground outline-none transition-colors placeholder:text-stone/60 focus:border-foreground"
+                  placeholder="Identidade visual, editorial, campanha..."
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-foreground">
-                  Email
+                <label htmlFor="message" className="eyebrow block">
+                  Mensagem
                 </label>
-                <input
-                  id="email"
-                  type="email"
+                <textarea
+                  id="message"
+                  rows={5}
                   required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="mt-2 block w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  placeholder="seu@email.com"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="mt-2 block w-full border-0 border-b border-input bg-transparent px-0 py-3 text-base text-foreground outline-none transition-colors placeholder:text-stone/60 focus:border-foreground resize-none"
+                  placeholder="Conte-me sobre o seu projeto..."
                 />
               </div>
-            </div>
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-foreground">
-                Assunto
-              </label>
-              <input
-                id="subject"
-                type="text"
-                required
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-                className="mt-2 block w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                placeholder="Sobre o que se trata?"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-foreground">
-                Mensagem
-              </label>
-              <textarea
-                id="message"
-                rows={5}
-                required
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                className="mt-2 block w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
-                placeholder="Conte-me sobre seu projeto..."
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-60"
-            >
-              {loading ? "A enviar..." : "Enviar mensagem"}
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={loading}
+                className="inline-flex items-center gap-3 rounded-full bg-foreground px-8 py-3.5 text-sm text-background transition-colors hover:bg-terracotta disabled:opacity-60"
+              >
+                {loading ? "A enviar..." : "Enviar mensagem →"}
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </div>
