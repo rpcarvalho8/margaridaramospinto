@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const { data: projects, isLoading, isError } = useQuery(projectsQuery());
+  const { data: projects, isLoading, isError, error } = useQuery(projectsQuery());
   const [category, setCategory] = useState<string>(ALL);
 
   return (
@@ -42,6 +42,7 @@ function Index() {
           projects={projects}
           isLoading={isLoading}
           isError={isError}
+          error={error}
           activeCategory={category}
           onCategoryChange={setCategory}
         />

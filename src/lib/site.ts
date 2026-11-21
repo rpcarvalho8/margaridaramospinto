@@ -3,9 +3,15 @@
  * Para substituir os placeholders basta colocar os ficheiros reais em `public/`
  * com estes nomes exatos — não é preciso alterar código.
  */
+export const POSITIONING =
+  "Designer de Comunicação com +15 anos de experiência — entre o design editorial, branding, fotografia de produto, UX/UI e soluções No-Code.";
+
 export const SITE_EMAIL = "geral@margaridaramospinto.com";
 
-/** Retrato editorial do hero / página Sobre (JPG ou WebP, ~1600px de altura). */
+/**
+ * Retrato editorial do hero / página Sobre. Fotografia com fundo branco:
+ * o componente Portrait funde o branco com o fundo quente do arco (mix-blend-multiply).
+ */
 export const PORTRAIT_SRC = "/margarida-retrato.jpg";
 
 /** CV / Portfólio em PDF para download. */

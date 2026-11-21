@@ -51,7 +51,7 @@ export function CvDownloadButton() {
       <span className="flex-1">
         <span className="block font-serif text-lg italic leading-tight">CV & Portfólio</span>
         <span className="mt-1 block text-[11px] uppercase tracking-[0.18em] text-background/60">
-          PDF · descarregar
+          PDF · outubro 2026 · descarregar
         </span>
       </span>
       <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />

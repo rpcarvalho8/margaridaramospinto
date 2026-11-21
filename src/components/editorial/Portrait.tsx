@@ -39,7 +39,12 @@ export function Portrait({ className, decorated = true, priority = false }: Port
         </>
       )}
 
-      <div className="arch relative aspect-[4/5] overflow-hidden bg-secondary shadow-[0_30px_60px_-30px_rgb(24_24_27/0.35)]">
+      <div className="arch relative aspect-[4/5] overflow-hidden bg-[linear-gradient(172deg,#EFEAE1_0%,#EAE5DC_45%,#DCDDD0_100%)] shadow-[0_30px_60px_-30px_rgb(24_24_27/0.35)]">
+        {/* luz suave de estúdio por trás do retrato */}
+        <div
+          aria-hidden
+          className="absolute left-1/2 top-[8%] h-2/3 w-[85%] -translate-x-1/2 rounded-full bg-white/45 blur-3xl"
+        />
         {!failed ? (
           <img
             ref={imgRef}
@@ -49,7 +54,7 @@ export function Portrait({ className, decorated = true, priority = false }: Port
             fetchPriority={priority ? "high" : "auto"}
             decoding="async"
             onError={() => setFailed(true)}
-            className="h-full w-full object-cover grayscale-[15%]"
+            className="relative h-full w-full origin-bottom scale-[1.12] object-cover mix-blend-multiply"
           />
         ) : (
           <PortraitPlaceholder />

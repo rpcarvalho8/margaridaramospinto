@@ -3,6 +3,7 @@ import { ArrowDownRight } from "lucide-react";
 import { DISCIPLINES, matchesDiscipline, type Discipline, type Project } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 import { Portrait } from "./Portrait";
+import { POSITIONING } from "@/lib/site";
 
 type HeroProps = {
   projects: Project[] | undefined;
@@ -46,11 +47,11 @@ export function HeroDisciplines({ projects, onSelectCategory }: HeroProps) {
   }
 
   return (
-    <section className="relative mx-auto max-w-7xl px-6 pb-20 pt-10 md:pb-28 md:pt-16">
+    <section className="relative mx-auto max-w-7xl px-6 pb-20 pt-28 md:pb-28 md:pt-32">
       <div className="grid items-end gap-14 md:grid-cols-12 md:gap-10">
         {/* Texto */}
         <div className="md:col-span-7">
-          <p className="eyebrow animate-reveal">Designer de Comunicação · Porto, Portugal</p>
+          <p className="eyebrow animate-reveal">Margarida Ramos Pinto · Trofa, Porto</p>
           <h1
             className="display mt-6 animate-reveal text-[clamp(3.25rem,9vw,7.5rem)] text-foreground"
             style={{ animationDelay: "80ms" }}
@@ -63,8 +64,7 @@ export function HeroDisciplines({ projects, onSelectCategory }: HeroProps) {
             className="mt-8 max-w-md animate-reveal text-base leading-relaxed text-stone md:text-lg"
             style={{ animationDelay: "160ms" }}
           >
-            Margarida Ramos Pinto cria identidades, peças editoriais e campanhas com atenção ao
-            detalhe, rigor e uma boa dose de curiosidade.
+            {POSITIONING}
           </p>
 
           {/* Áreas de atuação */}

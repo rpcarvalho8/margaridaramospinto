@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<rect width="100%" height="100%" fill="#DCDDD0"/>
+<circle cx="1152" cy="306" r="198" fill="#18181B" fill-opacity="0.85"/><rect x="128" y="468" width="448" height="360" fill="#18181B" fill-opacity="0.18"/><path d="M672 900 V558 a272 272 0 0 1 544 0 V900Z" fill="#18181B" fill-opacity="0.06"/><line x1="128" y1="108" x2="640" y2="108" stroke="#18181B" stroke-opacity="0.45" stroke-width="2"/>
+<text x="128" y="270" font-family="'Instrument Serif', Georgia, serif" font-size="99" fill="#18181B">Fotografia</text>
+<text x="128" y="374" font-family="'Instrument Serif', Georgia, serif" font-style="italic" font-size="99" fill="#71717A">de produto</text>
+<text x="128" y="72" font-family="Manrope, Arial, sans-serif" font-size="20" letter-spacing="6" fill="#71717A">CAPA PROVISÓRIA</text>
+</svg>

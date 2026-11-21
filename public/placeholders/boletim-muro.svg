@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500">
+<rect width="100%" height="100%" fill="#E4E6DC"/>
+<circle cx="864" cy="510" r="264" fill="#18181B" fill-opacity="0.85"/><rect x="96" y="780" width="336" height="600" fill="#18181B" fill-opacity="0.18"/><path d="M504 1500 V930 a204 204 0 0 1 408 0 V1500Z" fill="#18181B" fill-opacity="0.06"/><line x1="96" y1="180" x2="480" y2="180" stroke="#18181B" stroke-opacity="0.45" stroke-width="2"/>
+<text x="96" y="450" font-family="'Instrument Serif', Georgia, serif" font-size="132" fill="#18181B">Boletim</text>
+<text x="96" y="589" font-family="'Instrument Serif', Georgia, serif" font-style="italic" font-size="132" fill="#71717A">Informativo</text>
+<text x="96" y="120" font-family="Manrope, Arial, sans-serif" font-size="26" letter-spacing="6" fill="#71717A">CAPA PROVISÓRIA</text>
+</svg>

@@ -11,6 +11,7 @@ type ProjectGridProps = {
   projects: Project[] | undefined;
   isLoading: boolean;
   isError: boolean;
+  error?: unknown;
   activeCategory: string;
   onCategoryChange: (category: string) => void;
 };
@@ -19,6 +20,7 @@ export function ProjectGrid({
   projects,
   isLoading,
   isError,
+  error,
   activeCategory,
   onCategoryChange,
 }: ProjectGridProps) {
@@ -67,7 +69,8 @@ export function ProjectGrid({
         ) : isError ? (
           <EmptyState
             title="Os projetos estão a descansar."
-            text="Não foi possível carregar o portfólio neste momento. Tenta novamente daqui a pouco."
+            text="Não foi possível carregar o portfólio neste momento. Tente novamente daqui a pouco."
+            detail={import.meta.env.DEV ? describeError(error) : undefined}
           />
         ) : visible.length === 0 ? (
           <EmptyState
@@ -179,11 +182,27 @@ function ProjectTile({ project, index }: { project: Project; index: number }) {
   );
 }
 
-function EmptyState({ title, text }: { title: string; text: string }) {
+/** Só em desenvolvimento: mostra a causa real do erro do Supabase. */
+function describeError(error: unknown): string {
+  if (!error) return "Erro desconhecido";
+  if (error instanceof Error) return error.message;
+  if (typeof error === "object") {
+    const e = error as { message?: string; code?: string; hint?: string };
+    return [e.code, e.message, e.hint].filter(Boolean).join(" · ") || JSON.stringify(error);
+  }
+  return String(error);
+}
+
+function EmptyState({ title, text, detail }: { title: string; text: string; detail?: string }) {
   return (
     <div className="mx-auto max-w-md py-16 text-center">
       <p className="font-serif text-3xl italic text-foreground">{title}</p>
       <p className="mt-3 text-sm text-stone">{text}</p>
+      {detail && (
+        <pre className="mt-6 whitespace-pre-wrap rounded-sm border border-dashed border-terracotta/50 bg-terracotta/5 p-3 text-left font-mono text-xs text-terracotta">
+          [dev] {detail}
+        </pre>
+      )}
     </div>
   );
 }
